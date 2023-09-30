@@ -1,0 +1,8 @@
+# IDEs
+/.idea
+/.vscode
+
+# Install
+AAVMF*
+alpine*
+qemu*
