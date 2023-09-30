@@ -2,6 +2,8 @@
 
 Scripts that allow you to install and run Alpine Linux in QEMU aarch64 and armv7 architectures on an x86_64 machine.
 
+![preview.png](data/preview.png)
+
 You can watch the process:
 
 [![picture](data/btn_youtube.png)](https://youtu.be/oFQm43IH34s)
