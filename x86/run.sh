@@ -1,14 +1,13 @@
 #!/bin/bash
 
-DISK_NAME="alpine.armv7.qcow2"
-PORT="2222"
+DISK_NAME="alpine.x86.qcow2"
+PORT="2223"
 
 # Run qemu
-qemu-system-arm -accel tcg,thread=multi \
-  -machine virt \
-  -cpu cortex-a15 -smp cores=4 \
+qemu-system-i386 -enable-kvm \
+  -machine pc \
+  -cpu kvm32 -smp cores=4 \
   -m 2048 \
-  -bios AAVMF32_CODE.fd \
   -nographic \
   -drive if=virtio,id=hd,format=qcow2,file=$DISK_NAME \
   -nic user,hostfwd=tcp::$PORT-:22,model=virtio \

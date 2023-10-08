@@ -1,6 +1,7 @@
 #!/bin/bash
 
 DISK_NAME="alpine.aarch64.qcow2"
+PORT="2221"
 
 # Run qemu
 qemu-system-aarch64 -accel tcg,thread=multi \
@@ -10,6 +11,6 @@ qemu-system-aarch64 -accel tcg,thread=multi \
   -bios AAVMF_CODE.fd \
   -nographic \
   -drive if=virtio,id=hd,format=qcow2,file=$DISK_NAME \
-  -nic user,hostfwd=tcp::2222-:22,model=virtio \
+  -nic user,hostfwd=tcp::$PORT-:22,model=virtio \
   -device virtio-rng-pci \
   -rtc base=utc,clock=host
