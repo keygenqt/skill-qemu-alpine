@@ -1,6 +1,6 @@
-# Install arm Alpine Linux on QEMU
+# Install Alpine Linux on QEMU
 
-Scripts that allow you to install and run Alpine Linux in QEMU aarch64 and armv7 architectures on an x86_64 machine.
+Scripts that allow you to install and run Alpine Linux in QEMU aarch64, armv7, x86 and x86_64 architectures on an x86_64 machine.
 
 ![preview.png](data/preview.png)
 
@@ -8,10 +8,16 @@ You can watch the process:
 
 [![picture](data/btn_youtube.png)](https://youtu.be/oFQm43IH34s)
 
+## Dependency
+
+```shell
+sudo apt install qemu-system qemu-user-static
+```
+
 ### License
 
 ```
-Copyright 2022-2023 Vitaliy Zarubin
+Copyright 2023-2024 Vitaliy Zarubin
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
