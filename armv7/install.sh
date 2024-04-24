@@ -1,10 +1,21 @@
 #!/bin/bash
 
-URL_DISTR="https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/armv7/alpine-virt-3.18.3-armv7.iso"
-URL_EFI="http://ftp.de.debian.org/debian/pool/main/e/edk2/qemu-efi-arm_2023.05-2_all.deb"
-
-DISK_NAME="alpine.armv7.qcow2"
+ALP_ARCH=armv7
+DISK_NAME="alpine.$ALP_ARCH.qcow2"
 DISK_SIZE="8G"
+
+#Get last release and iso file name
+ALP_VIRT_LAST_ISO=$(wget -qO- "https://dl-cdn.alpinelinux.org/alpine/latest-stable/releases/$ALP_ARCH/latest-releases.yaml" | grep "iso: alpine-virt" | cut -d':' -f2- | tr -d '[:space:]')
+
+ALP_VIRT_VERSION=$(echo $ALP_VIRT_LAST_ISO | cut -d'-' -f3)
+
+#Display detected last-version of virt
+echo "Last Alpine release for $ALP_ARCH version: $ALP_VIRT_VERSION  iso:$ALP_VIRT_LAST_ISO"
+echo "Starting download.."
+
+URL_DISTR="https://dl-cdn.alpinelinux.org/alpine/latest-stable/releases/$ALP_ARCH/$ALP_VIRT_LAST_ISO"
+URL_EFI="http://security.debian.org/debian-security/pool/updates/main/e/edk2/qemu-efi-arm_2022.11-6+deb12u1_all.deb"
+
 
 # Download Alpine
 if [ ! -f $(basename $URL_DISTR) ]; then

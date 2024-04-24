@@ -1,6 +1,7 @@
 #!/bin/bash
 
-DISK_NAME="alpine.x86.qcow2"
+ALP_ARCH=x86
+DISK_NAME="alpine.$ALP_ARCH.qcow2"
 PORT="2223"
 
 # Run qemu
