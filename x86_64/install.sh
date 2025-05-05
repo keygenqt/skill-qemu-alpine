@@ -5,7 +5,6 @@ DISK_SIZE="8G"
 
 #Get last release and iso file name
 ALP_VIRT_LAST_ISO=$(wget -qO- "https://dl-cdn.alpinelinux.org/alpine/latest-stable/releases/$ALP_ARCH/latest-releases.yaml" | grep "iso: alpine-virt" | cut -d':' -f2- | tr -d '[:space:]')
-
 ALP_VIRT_VERSION=$(echo $ALP_VIRT_LAST_ISO | cut -d'-' -f3)
 
 #Display detected last-version of virt
@@ -16,7 +15,7 @@ URL_DISTR="https://dl-cdn.alpinelinux.org/alpine/latest-stable/releases/$ALP_ARC
 
 # Download Alpine
 if [ ! -f $(basename $URL_DISTR) ]; then
-	wget $URL_DISTR
+  wget $URL_DISTR
 fi
 
 # Create qemu disc
